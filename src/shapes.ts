@@ -40,16 +40,16 @@ function polygon(sides: number, radius: number): string {
   return `M ${points.join(" L ")} Z`;
 }
 
-// Bold block letter paths for REMOTION (each approx 50x60 centered at origin)
+// Bold block letter paths for UNDERGROUND (each approx 50x60 centered at origin)
 export function letterPaths(): Record<string, string> {
   return {
-    R: blockLetter_R(),
-    E: blockLetter_E(),
-    M: blockLetter_M(),
-    O: blockLetter_O(),
-    T: blockLetter_T(),
-    I: blockLetter_I(),
+    U: blockLetter_U(),
     N: blockLetter_N(),
+    D: blockLetter_D(),
+    E: blockLetter_E(),
+    R: blockLetter_R(),
+    G: blockLetter_G(),
+    O: blockLetter_O(),
   };
 }
 
@@ -60,12 +60,21 @@ function blockLetter_R(): string {
     M -8 -18 L 2 -18 Q 8 -18 8 -14 Q 8 -8 2 -8 L -8 -8 Z`;
 }
 
+function blockLetter_U(): string {
+  return `M -18 -30 L -18 18 Q -18 30 0 30 Q 18 30 18 18 L 18 -30 L 6 -30 L 6 16 Q 6 18 0 18 Q -6 18 -6 16 L -6 -30 Z`;
+}
+
 function blockLetter_E(): string {
   return `M -18 -30 L -18 30 L 18 30 L 18 18 L -6 18 L -6 6 L 14 6 L 14 -6 L -6 -6 L -6 -18 L 18 -18 L 18 -30 Z`;
 }
 
-function blockLetter_M(): string {
-  return `M -24 -30 L -24 30 L -12 30 L -12 -4 L -2 16 L 2 16 L 12 -4 L 12 30 L 24 30 L 24 -30 L 14 -30 L 0 -2 L -14 -30 Z`;
+function blockLetter_D(): string {
+  return `M -18 -30 L -18 30 L 4 30 Q 18 30 18 18 L 18 -18 Q 18 -30 4 -30 Z
+    M -6 -18 L 2 -18 Q 6 -18 6 -14 L 6 14 Q 6 18 2 18 L -6 18 Z`;
+}
+
+function blockLetter_G(): string {
+  return `M -18 -18 Q -18 -30 0 -30 Q 18 -30 18 -18 L 18 -12 L 6 -12 L 6 -16 Q 6 -18 0 -18 Q -6 -18 -6 -14 L -6 14 Q -6 18 0 18 Q 6 18 6 14 L 6 2 L 0 2 L 0 -8 L 18 -8 L 18 18 Q 18 30 0 30 Q -18 30 -18 18 Z`;
 }
 
 function blockLetter_O(): string {
@@ -73,19 +82,11 @@ function blockLetter_O(): string {
     M -6 -18 L 6 -18 Q 6 -18 6 -14 L 6 14 Q 6 18 0 18 Q -6 18 -6 14 L -6 -14 Q -6 -18 -6 -18 Z`;
 }
 
-function blockLetter_T(): string {
-  return `M -20 -30 L -20 -18 L -6 -18 L -6 30 L 6 30 L 6 -18 L 20 -18 L 20 -30 Z`;
-}
-
-function blockLetter_I(): string {
-  return `M -16 -30 L -16 -18 L -6 -18 L -6 18 L -16 18 L -16 30 L 16 30 L 16 18 L 6 18 L 6 -18 L 16 -18 L 16 -30 Z`;
-}
-
 function blockLetter_N(): string {
   return `M -18 -30 L -18 30 L -6 30 L -6 -2 L 8 30 L 18 30 L 18 -30 L 6 -30 L 6 2 L -8 -30 Z`;
 }
 
-// Shape order matching the 8 shapes: Pentagon, Triangle, Square, Circle, Hexagon, Diamond, Circle, Triangle
+// Shape order matching the 11 shapes for UNDERGROUND
 export const shapeGenerators = [
   pentagon,
   triangle,
@@ -95,9 +96,12 @@ export const shapeGenerators = [
   diamond,
   circle,
   triangle,
+  pentagon,
+  hexagon,
+  diamond,
 ];
 
-export const LETTERS = ["R", "E", "M", "O", "T", "I", "O", "N"];
+export const LETTERS = ["U", "N", "D", "E", "R", "G", "R", "O", "U", "N", "D"];
 
 export const SHAPE_COLORS = [
   "#FF6B6B", // Red
@@ -108,4 +112,7 @@ export const SHAPE_COLORS = [
   "#F0876A", // Coral
   "#58D68D", // Green
   "#85C1E9", // Light Blue
+  "#F1948A", // Salmon
+  "#7DCEA0", // Mint
+  "#F5B041", // Amber
 ];
