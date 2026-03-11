@@ -26,8 +26,8 @@ const SCENE3_END = 210; // 5.5-7s: logo fly-in
 const SCENE4_START = 210;
 const SCENE4_END = 300; // 7-10s: wipe exit
 
-const TOTAL_SHAPES = 8;
-const SPACING = 90;
+const TOTAL_SHAPES = 11;
+const SPACING = 70;
 const CENTER_X = 1920 / 2;
 const CENTER_Y = 1080 / 2;
 
@@ -233,7 +233,7 @@ const ShapeElement: React.FC<{
 function getLogoX(frame: number, fps: number): number {
   if (frame < SCENE3_START) return -200;
 
-  // Scene 3: Fly in from left to near the 'R'
+  // Scene 3: Fly in from left to near the 'U'
   if (frame < SCENE4_START) {
     const targetX = getShapeX(0) - 80;
     const flyProgress = spring({
